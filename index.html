@@ -3,17 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAS Visual Analytics Report</title>
+  <title>SAS Visual Analytics Portfolio</title>
   <script async src="https://cdn.developer.sas.com/packages/va-report-components/latest/dist/umd/va-report-components.js"></script>
   <style>
-    body { margin: 0; padding: 16px; font-family: sans-serif; background: #f8f9fa; }
-    sas-report { width: 100%; height: 90vh; display: block; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+    }
+    header {
+      background: #002244;
+      color: #fff;
+      padding: 16px 24px;
+    }
+    header h1 { margin: 0 0 12px 0; font-size: 1.4rem; }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: #003366;
+      color: #fff;
+      border: 1px solid #1a4d80;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .tab-btn:hover { background: #004080; }
+    .tab-btn.active {
+      background: #0070d2;
+      border-color: #0070d2;
+      font-weight: 600;
+    }
+    .container { padding: 16px 24px; }
+    .report-panel { display: none; }
+    .report-panel.active { display: block; }
+    sas-report {
+      width: 100%;
+      height: 82vh;
+      display: block;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .direct-link {
+      margin-top: 8px;
+      font-size: 0.85rem;
+    }
+    .direct-link a { color: #0070d2; text-decoration: none; }
+    .direct-link a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <sas-report
-    url="https://vfl-061.engage.sas.com"
-    reportUri="/reports/reports/bb73f0a1-343d-4368-824c-bb5a5a768f5a">
-  </sas-report>
+
+  <header>
+    <h1>SAS Visual Analytics Showcase</h1>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchReport(0)">Report 1</button>
+      <button class="tab-btn" onclick="switchReport(1)">Report 2</button>
+      <button class="tab-btn" onclick="switchReport(2)">Report 3</button>
+      <button class="tab-btn" onclick="switchReport(3)">Report 4</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Report 1 -->
+    <div class="report-panel active">
+      <sas-report url="https://vfl-061.engage.sas.com" reportUri="/reports/reports/bb73f0a1-343d-4368-824c-bb5a5a768f5a"></sas-report>
+      <p class="direct-link"><a href="https://vfl-061.engage.sas.com/links/resources/report?uri=%2Freports%2Freports%2Fbb73f0a1-343d-4368-824c-bb5a5a768f5a" target="_blank">Open directly in SAS Viya ↗</a></p>
+    </div>
+
+    <!-- Report 2 -->
+    <div class="report-panel">
+      <sas-report url="https://vfl-061.engage.sas.com" reportUri="/reports/reports/dc429e6d-215e-4e76-94d1-94a26b5686d2"></sas-report>
+      <p class="direct-link"><a href="https://vfl-061.engage.sas.com/links/resources/report?uri=%2Freports%2Freports%2Fdc429e6d-215e-4e76-94d1-94a26b5686d2" target="_blank">Open directly in SAS Viya ↗</a></p>
+    </div>
+
+    <!-- Report 3 -->
+    <div class="report-panel">
+      <sas-report url="https://vfl-061.engage.sas.com" reportUri="/reports/reports/51054649-232a-425c-8ab3-2c005f1356f1"></sas-report>
+      <p class="direct-link"><a href="https://vfl-061.engage.sas.com/links/resources/report?uri=%2Freports%2Freports%2F51054649-232a-425c-8ab3-2c005f1356f1" target="_blank">Open directly in SAS Viya ↗</a></p>
+    </div>
+
+    <!-- Report 4 -->
+    <div class="report-panel">
+      <sas-report url="https://vfl-061.engage.sas.com" reportUri="/reports/reports/eb897d90-e4fd-4bdf-a764-b61af5c339b8"></sas-report>
+      <p class="direct-link"><a href="https://vfl-061.engage.sas.com/links/resources/report?uri=%2Freports%2Freports%2Feb897d90-e4fd-4bdf-a764-b61af5c339b8" target="_blank">Open directly in SAS Viya ↗</a></p>
+    </div>
+  </div>
+
+  <script>
+    function switchReport(index) {
+      const panels = document.querySelectorAll('.report-panel');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      panels.forEach((p, i) => p.classList.toggle('active', i === index));
+      buttons.forEach((b, i) => b.classList.toggle('active', i === index));
+    }
+  </script>
 </body>
 </html>
