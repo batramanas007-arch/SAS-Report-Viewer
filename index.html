@@ -9,7 +9,7 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      padding: 32px 16px;
+      padding: 40px 20px;
       background: #0f172a;
       color: #f8fafc;
       display: flex;
@@ -19,10 +19,50 @@
     header {
       text-align: center;
       max-width: 800px;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
     }
-    h1 { font-size: 2.2rem; margin-bottom: 8px; color: #38bdf8; }
-    p.subtitle { color: #94a3b8; font-size: 1.1rem; line-height: 1.5; }
+    h1 { font-size: 2.4rem; margin-bottom: 12px; color: #38bdf8; }
+    p.subtitle { color: #94a3b8; font-size: 1.1rem; line-height: 1.6; }
+    
+    /* Table Styles */
+    .table-container {
+      width: 100%;
+      max-width: 1100px;
+      margin-bottom: 40px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .table-header {
+      background: #0f172a;
+      padding: 16px 24px;
+      border-bottom: 1px solid #334155;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #f1f5f9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 16px 24px;
+      border-bottom: 1px solid #334155;
+    }
+    th {
+      background: #1e293b;
+      color: #94a3b8;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    td { color: #cbd5e1; font-size: 0.95rem; line-height: 1.4; }
+    tr:last-child td { border-bottom: none; }
+    
+    /* Grid Styles */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -45,7 +85,7 @@
       border-color: #38bdf8;
     }
     .card h3 { margin: 0 0 12px 0; font-size: 1.3rem; color: #f1f5f9; }
-    .card p { color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; }
+    .card p { color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
     .btn {
       display: inline-block;
       text-align: center;
@@ -68,39 +108,71 @@
     <p class="subtitle">A showcase of advanced data modeling, customer segmentation, and predictive analytics built in SAS Viya.</p>
   </header>
 
+  <!-- Data Reference Table -->
+  <div class="table-container">
+    <div class="table-header">Dataset Reference & Methodology</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Project / Subject</th>
+          <th>Dataset Size</th>
+          <th>Key Variables Analyzed</th>
+          <th>Analytical Goal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>PVA Cluster Model</strong></td>
+          <td>106,546 Rows<br>29 Features</td>
+          <td>Gift Avg (36 Months), Promo Count, Demographics, Target Variables</td>
+          <td>Segmenting donor profiles to optimize future direct mailing campaigns and estimate gift values.</td>
+        </tr>
+        <tr>
+          <td><strong>Global Sales & Profit</strong></td>
+          <td>190,001 Rows<br>21 Features</td>
+          <td>Total Revenue, Profit, Order Type, Continent, Customer Details</td>
+          <td>Visualizing global profitability trends, delivery times, and geographic performance across retail channels.</td>
+        </tr>
+        <tr>
+          <td><strong>Titanic Survival Analytics</strong></td>
+          <td>1,309 Rows<br>12 Features</td>
+          <td>Passenger Class, Sex, Age, Fare, Cabin, Embarked Location</td>
+          <td>Utilizing historical categorical features to map survival probabilities and feature importance.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Project Cards -->
   <main class="grid">
-    <!-- Project 1 -->
     <div class="card">
       <div>
         <h3>Bank Cluster Analysis</h3>
-        <p>A 5-page customer segmentation study that groups customers into 5 distinct clusters based on demographic age, home value, and income. The report features a logistic regression model with odds ratio and residual plots to evaluate account activity and customer value levels.</p>
+        <p>A 5-page customer segmentation study that groups customers into 5 distinct clusters based on demographic age, home value, and income. Features a logistic regression model evaluating account activity levels.</p>
       </div>
       <a class="btn" href="CLUSTER%20ANALYSIS%20for%20Bank%20(1).pdf" target="_blank">Read PDF Report ↗</a>
     </div>
 
-    <!-- Project 2 -->
     <div class="card">
       <div>
         <h3>PVA Cluster Analysis</h3>
-        <p>A targeted visual polyline cluster analysis segmenting donors into 7 distinct groups. It maps critical engagement metrics across clusters, including average gift amounts over 36 months, the most recent gift amount, and total gift frequency.</p>
+        <p>A targeted visual polyline cluster analysis segmenting over 106k donor records into 7 distinct groups. Maps engagement metrics like average gift amounts over 36 months.</p>
       </div>
       <a class="btn" href="PVA%20CLUSTER%20ANALYSIS.pdf" target="_blank">Read PDF Report ↗</a>
     </div>
 
-    <!-- Project 3 -->
     <div class="card">
       <div>
         <h3>Comprehensive Bank Analysis</h3>
-        <p>A 16-page predictive modeling report evaluating customer purchasing behavior. It utilizes RFM (Recency, Frequency, Monetary) metrics, demographic data, decision trees, and a Generalized Additive Model (GAM) to predict the likelihood of new product adoption.</p>
+        <p>A 16-page predictive modeling report evaluating customer purchasing behavior utilizing RFM metrics, demographic data, and Generalized Additive Models (GAM).</p>
       </div>
       <a class="btn" href="Bank%20Analysis.pdf" target="_blank">Read PDF Report ↗</a>
     </div>
 
-    <!-- Project 4 -->
     <div class="card">
       <div>
         <h3>Global Sales & Profitability</h3>
-        <p>A 5-page dashboard analyzing e-commerce sales trends and a total profit of $1.2M. It breaks down profitability by continent and order type (Catalog, Internet, Retail), visualizes order month frequency, and features a global distribution map of the top and bottom performing countries.</p>
+        <p>A dashboard analyzing 190k e-commerce sales records, detailing profitability across continents and order types, accompanied by a global distribution map of performing countries.</p>
       </div>
       <a class="btn" href="My%20Titanic%20Report%202%20on%20Apr%2014,%202026.pdf" target="_blank">Read PDF Report ↗</a>
     </div>
